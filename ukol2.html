@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol 2</title>
+    <script>
+        console.log("connected");
+        const vypis = ()=>{
+            let pocet = parseInt(Formul.pocet.value);
+            let div = document.getElementById('vypis');
+            let vysledek = "";
+            if (pocet<=0) {
+                    vysledek = "nelze mít nula nebo zaporný počet stromů"
+                }
+            for (let i = 1; i <= pocet; i++) {                
+                if (i==1) {
+                    vysledek += i+". "+ "Zelený strom" + "<br>";
+                }
+                else if (i>1&&i<5) {
+                    vysledek += i+". "+"Zelené stromy"+ "<br>";
+                }
+                else if (i>5) {
+                    vysledek += i+". "+"Zelených stromů"+ "<br>";
+                }
+            }
+            div.innerHTML = vysledek;
+        }
+    </script>
+</head>
+<body onload="vypis()">
+    <header>
+        <div class="nav">
+            <a href="index.html"> Úkol 1</a>
+            <a href="ukol2.html" id="selected"> Úkol 2</a>
+            <a href="ukol3.html"> Úkol 3</a>
+        </div>
+    </header>
+    <div class="content">
+        <form name="Formul">
+            Počet: <input name="pocet" type="number" value="7" min="0" onchange="vypis()">
+            <div id="vypis">
+
+            </div>
+        </form>
+    </div>
+    <footer>
+        <h3>Made by Jan Čejka</h3>
+        <p>&#169; Copyright 2023</p>
+    </footer>
+</body>
+</html>

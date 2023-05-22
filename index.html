@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol 1</title>
+    <script>
+        console.log("connected");
+        const vypocti = ()=>{
+            let a = parseInt(Formul.a.value);
+            let b = parseInt(Formul.b.value);
+            let znamenko = Formul.znamenko.value;            
+            let vypocet;
+            switch (znamenko) {
+                case "+":
+                    vypocet = a+b;
+                    break;
+                    case "-":
+                    vypocet = a-b;
+                    break;
+                    case "*":
+                    vypocet = a*b;
+                    break;
+                    case "/":
+                    vypocet = a/b;
+                    break;
+                default:
+                    break;
+            }
+            let divnavysledek = document.getElementById("vysledek");
+            let vysledek = a + " "+ znamenko+ " "+ b + " "+ "=" + " "+(vypocet);
+            if (znamenko =="/" && b==0) {
+                vysledek = "nelze delit nulou"
+            }
+            divnavysledek.innerHTML = vysledek;
+        }
+    </script>
+</head>
+<body onload="vypocti()">
+    <header>
+        <div class="nav">
+            <a href="index.html" id="selected"> Úkol 1</a>
+            <a href="ukol2.html"> Úkol 2</a>
+            <a href="ukol3.html"> Úkol 3</a>
+        </div>
+    </header>
+    <div class="content">
+        <form name="Formul">
+           a: <input name="a" type="number" onchange="vypocti()" value="10"><br>
+           <br>
+           b: <input name="b" type="number" onchange="vypocti()" value="3"><br><br>
+           <input checked type="radio" name="znamenko" id="" value="+" onchange="vypocti()"> +
+           <input type="radio" name="znamenko" id="" value="-" onchange="vypocti()"> -
+           <input type="radio" name="znamenko" id="" value="*" onchange="vypocti()"> *
+           <input type="radio" name="znamenko" id="" value="/" onchange="vypocti()"> /
+        </form>        
+        <div id="vysledek">
+
+        </div>
+    </div>
+    <footer>
+        <h3>Made by Jan Čejka</h3>
+        <p>&#169; Copyright 2023</p>
+    </footer>
+</body>
+</html>

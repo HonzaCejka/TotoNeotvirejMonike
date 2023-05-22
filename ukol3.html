@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol 3</title>
+    <script>
+        console.log("connected");
+        const maluj = ()=>{
+            let row = parseInt(Formul.radky.value);
+            let col = parseInt(Formul.sloupce.value);
+            let color = Formul.color.value;
+            let check = Formul.chcibarvu.checked;              
+            let vypis = "<table>";
+            let div = document.getElementById("vysledek");
+            for (let i = 0; i < row; i++) {
+                vypis += "<tr>";
+                for (let j = 0; j < col; j++) {                    
+                    if (i%2 == 0) {
+                        if (check == true) {
+                            vypis += "<td style = background-color:"+color +" ;>"+"</td>";                             
+                        }else{
+                            vypis += "<td></td>";                         
+                        }
+                        
+                    }else{
+                        vypis += "<td>"+ i +"-"+ j+"</td>";                                
+                    }
+                }
+                vypis += "</td>";
+            }
+            vypis+= "</table>";            
+            if (col <= 0 || row <= 0) {
+                vypis = "nelze mit tabulku bez dedinice"
+            }
+            div.innerHTML = vypis;
+        }
+    </script>
+</head>
+<body onload="maluj()">
+    <header>
+        <div class="nav">
+            <a href="index.html"> Úkol 1</a>
+            <a href="ukol2.html"> Úkol 2</a>
+            <a href="ukol3.html" id="selected"> Úkol 3</a>
+        </div>
+    </header>
+    <div class="content">
+        <form name="Formul">
+            Řádky: <input min="0" value="8" name="radky" type="number" onchange="maluj()"><br><br>
+            Sloupce: <input min="0" value="4" name="sloupce" type="number" onchange="maluj()"><br><br>
+            Barva: <input name="color" type="color" value="#246148" onchange="maluj()"> <input type="checkbox" name="chcibarvu" onchange="maluj()">
+        </form>
+        <div id="vysledek">
+
+        </div>
+    </div>
+    <footer>
+        <h3>Made by Jan Čejka</h3>
+        <p>&#169; Copyright 2023</p>
+    </footer>
+</body>
+</html>
